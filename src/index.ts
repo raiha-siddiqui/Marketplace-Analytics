@@ -3,10 +3,12 @@ import { PrismaClient } from '@prisma/client';
 const prisma= new PrismaClient();
 
 async function main(){
-  const deletedUser = await prisma.user.delete({
-    where:{id: '7ef03a9e-1ecf-470a-8d37-49cb65a44ed3'}
+  const category= await prisma.category.create({
+    data:{
+      name: "Electronics"
+    }
   })
-  console.log("User deleted successfully: ", deletedUser )
+  console.log("Created category: ", category);
 }
 
 main()
